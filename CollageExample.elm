@@ -1,9 +1,10 @@
 import Html exposing (program)
-import Svg exposing (..)
-import Svg.Attributes exposing (..)
 import Keyboard exposing (..)
 import AnimationFrame
 import Time exposing (..)
+import Collage exposing (..)
+import Element exposing (..)
+import Color exposing (blue)
 
 -- Need to use program rather than beginnerProgram for subscriptions.
 main = program
@@ -101,17 +102,6 @@ floor model =
        model
 
 view model =
-    svg
-      -- List of attributes of SVG node
-      [ width "100%", height "100%" -- Scale up to take the full page
-      , viewBox "0 0 500 100" -- Numbers used in the drawing are relative to these viewBox dimensions. 0 in the y dimension is the top of the drawing.
-      ]
-      -- List of children
-      [ circle [ cx (toString (model.x + 16))
-               , cy (toString (75 - model.y))
-               , r "16"] []
-      , line [ x1 "0", y1 "95"
-             , x2 "500", y2 "95"
-             , strokeWidth "8"
-             , stroke "black" ] [] ]
+    toHtml (collage 500 500
+             [(filled blue (circle 5))])
 

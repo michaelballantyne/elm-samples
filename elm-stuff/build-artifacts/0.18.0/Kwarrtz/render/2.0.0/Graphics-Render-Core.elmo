@@ -1,0 +1,77 @@
+var _Kwarrtz$render$Graphics_Render_Core$Form = F7(
+	function (a, b, c, d, e, f, g) {
+		return {x: a, y: b, theta: c, scale: d, alpha: e, form: f, handlers: g};
+	});
+var _Kwarrtz$render$Graphics_Render_Core$LineStyle = F6(
+	function (a, b, c, d, e, f) {
+		return {stroke: a, width: b, cap: c, join: d, dashing: e, dashOffset: f};
+	});
+var _Kwarrtz$render$Graphics_Render_Core$ShapeStyle = F2(
+	function (a, b) {
+		return {fill: a, border: b};
+	});
+var _Kwarrtz$render$Graphics_Render_Core$TextStyle_ = F6(
+	function (a, b, c, d, e, f) {
+		return {stroke: a, size: b, font: c, italic: d, bold: e, underlined: f};
+	});
+var _Kwarrtz$render$Graphics_Render_Core$TextStyle = F7(
+	function (a, b, c, d, e, f, g) {
+		return {stroke: a, size: b, font: c, italic: d, bold: e, underlined: f, align: g};
+	});
+var _Kwarrtz$render$Graphics_Render_Core$FElem = function (a) {
+	return {ctor: 'FElem', _0: a};
+};
+var _Kwarrtz$render$Graphics_Render_Core$FGroup = function (a) {
+	return {ctor: 'FGroup', _0: a};
+};
+var _Kwarrtz$render$Graphics_Render_Core$FImage = F3(
+	function (a, b, c) {
+		return {ctor: 'FImage', _0: a, _1: b, _2: c};
+	});
+var _Kwarrtz$render$Graphics_Render_Core$FText = F2(
+	function (a, b) {
+		return {ctor: 'FText', _0: a, _1: b};
+	});
+var _Kwarrtz$render$Graphics_Render_Core$FShape = F2(
+	function (a, b) {
+		return {ctor: 'FShape', _0: a, _1: b};
+	});
+var _Kwarrtz$render$Graphics_Render_Core$FLine = F2(
+	function (a, b) {
+		return {ctor: 'FLine', _0: a, _1: b};
+	});
+var _Kwarrtz$render$Graphics_Render_Core$Polyline = function (a) {
+	return {ctor: 'Polyline', _0: a};
+};
+var _Kwarrtz$render$Graphics_Render_Core$Ellipse = F2(
+	function (a, b) {
+		return {ctor: 'Ellipse', _0: a, _1: b};
+	});
+var _Kwarrtz$render$Graphics_Render_Core$Polygon = function (a) {
+	return {ctor: 'Polygon', _0: a};
+};
+var _Kwarrtz$render$Graphics_Render_Core$Text = F2(
+	function (a, b) {
+		return {ctor: 'Text', _0: a, _1: b};
+	});
+var _Kwarrtz$render$Graphics_Render_Core$Right = {ctor: 'Right'};
+var _Kwarrtz$render$Graphics_Render_Core$Left = {ctor: 'Left'};
+var _Kwarrtz$render$Graphics_Render_Core$Center = {ctor: 'Center'};
+var _Kwarrtz$render$Graphics_Render_Core$Flat = {ctor: 'Flat'};
+var _Kwarrtz$render$Graphics_Render_Core$Square = {ctor: 'Square'};
+var _Kwarrtz$render$Graphics_Render_Core$Round = {ctor: 'Round'};
+var _Kwarrtz$render$Graphics_Render_Core$Bevel = {ctor: 'Bevel'};
+var _Kwarrtz$render$Graphics_Render_Core$Sharp = {ctor: 'Sharp'};
+var _Kwarrtz$render$Graphics_Render_Core$Smooth = {ctor: 'Smooth'};
+var _Kwarrtz$render$Graphics_Render_Core$None = {ctor: 'None'};
+var _Kwarrtz$render$Graphics_Render_Core$Linear = F2(
+	function (a, b) {
+		return {ctor: 'Linear', _0: a, _1: b};
+	});
+var _Kwarrtz$render$Graphics_Render_Core$Pattern = F4(
+	function (a, b, c, d) {
+		return {ctor: 'Pattern', _0: a, _1: b, _2: c, _3: d};
+	});
+var _Kwarrtz$render$Graphics_Render_Core$Solid = function (a) {
+	return {ctor: 'Solid', _0: a};
+};

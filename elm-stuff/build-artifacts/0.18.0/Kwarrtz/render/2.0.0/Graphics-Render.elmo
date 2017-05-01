@@ -1,0 +1,364 @@
+var _Kwarrtz$render$Graphics_Render$angledLinearGradient = _Kwarrtz$render$Graphics_Render_Core$Linear;
+var _Kwarrtz$render$Graphics_Render$linearGradient = _Kwarrtz$render$Graphics_Render$angledLinearGradient(0);
+var _Kwarrtz$render$Graphics_Render$simpleLinearGradient = function (colors) {
+	return _Kwarrtz$render$Graphics_Render$linearGradient(
+		A2(
+			_elm_lang$core$List$indexedMap,
+			F2(
+				function (i, x) {
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Basics$toFloat(i) / _elm_lang$core$Basics$toFloat(
+							_elm_lang$core$List$length(colors) - 1),
+						_1: x
+					};
+				}),
+			colors));
+};
+var _Kwarrtz$render$Graphics_Render$patternWithOpacity = _Kwarrtz$render$Graphics_Render_Core$Pattern;
+var _Kwarrtz$render$Graphics_Render$pattern = F3(
+	function (w, h, url) {
+		return A4(_Kwarrtz$render$Graphics_Render$patternWithOpacity, w, h, url, 1);
+	});
+var _Kwarrtz$render$Graphics_Render$transparent = _Kwarrtz$render$Graphics_Render_Core$None;
+var _Kwarrtz$render$Graphics_Render$solid = _Kwarrtz$render$Graphics_Render_Core$Solid;
+var _Kwarrtz$render$Graphics_Render$right = _Kwarrtz$render$Graphics_Render_Core$Right;
+var _Kwarrtz$render$Graphics_Render$left = _Kwarrtz$render$Graphics_Render_Core$Left;
+var _Kwarrtz$render$Graphics_Render$center = _Kwarrtz$render$Graphics_Render_Core$Center;
+var _Kwarrtz$render$Graphics_Render$bevel = _Kwarrtz$render$Graphics_Render_Core$Bevel;
+var _Kwarrtz$render$Graphics_Render$sharp = _Kwarrtz$render$Graphics_Render_Core$Sharp;
+var _Kwarrtz$render$Graphics_Render$smooth = _Kwarrtz$render$Graphics_Render_Core$Smooth;
+var _Kwarrtz$render$Graphics_Render$flat = _Kwarrtz$render$Graphics_Render_Core$Flat;
+var _Kwarrtz$render$Graphics_Render$square = _Kwarrtz$render$Graphics_Render_Core$Square;
+var _Kwarrtz$render$Graphics_Render$round = _Kwarrtz$render$Graphics_Render_Core$Round;
+var _Kwarrtz$render$Graphics_Render$svg = _Kwarrtz$render$Graphics_Render_Svg$svg;
+var _Kwarrtz$render$Graphics_Render$on = F3(
+	function (event, decoder, f) {
+		return _elm_lang$core$Native_Utils.update(
+			f,
+			{
+				handlers: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: event, _1: decoder},
+					_1: f.handlers
+				}
+			});
+	});
+var _Kwarrtz$render$Graphics_Render$simpleOn = function (event) {
+	return function (_p0) {
+		return A2(
+			_Kwarrtz$render$Graphics_Render$on,
+			event,
+			_elm_lang$core$Json_Decode$succeed(_p0));
+	};
+};
+var _Kwarrtz$render$Graphics_Render$onClick = _Kwarrtz$render$Graphics_Render$simpleOn('click');
+var _Kwarrtz$render$Graphics_Render$onFocusIn = _Kwarrtz$render$Graphics_Render$simpleOn('focusin');
+var _Kwarrtz$render$Graphics_Render$onFocusOut = _Kwarrtz$render$Graphics_Render$simpleOn('focusout');
+var _Kwarrtz$render$Graphics_Render$mouseOn = F2(
+	function (event, msg) {
+		return A2(
+			_Kwarrtz$render$Graphics_Render$on,
+			event,
+			A2(
+				_elm_lang$core$Json_Decode$map,
+				msg,
+				A3(
+					_elm_lang$core$Json_Decode$map2,
+					F2(
+						function (x, y) {
+							return {ctor: '_Tuple2', _0: x, _1: y};
+						}),
+					A2(_elm_lang$core$Json_Decode$field, 'clientX', _elm_lang$core$Json_Decode$float),
+					A2(_elm_lang$core$Json_Decode$field, 'clientY', _elm_lang$core$Json_Decode$float))));
+	});
+var _Kwarrtz$render$Graphics_Render$onMouseDown = _Kwarrtz$render$Graphics_Render$mouseOn('mousedown');
+var _Kwarrtz$render$Graphics_Render$onMouseUp = _Kwarrtz$render$Graphics_Render$mouseOn('mouseup');
+var _Kwarrtz$render$Graphics_Render$onMouseMove = _Kwarrtz$render$Graphics_Render$mouseOn('mousemove');
+var _Kwarrtz$render$Graphics_Render$onMouseOver = _Kwarrtz$render$Graphics_Render$mouseOn('mouseover');
+var _Kwarrtz$render$Graphics_Render$onMouseOut = _Kwarrtz$render$Graphics_Render$mouseOn('mouseout');
+var _Kwarrtz$render$Graphics_Render$opacity = F2(
+	function (alpha, form) {
+		return _elm_lang$core$Native_Utils.update(
+			form,
+			{alpha: alpha});
+	});
+var _Kwarrtz$render$Graphics_Render$scale = F2(
+	function (scale, form) {
+		return _elm_lang$core$Native_Utils.update(
+			form,
+			{scale: scale});
+	});
+var _Kwarrtz$render$Graphics_Render$angle = F2(
+	function (theta, form) {
+		return _elm_lang$core$Native_Utils.update(
+			form,
+			{theta: theta});
+	});
+var _Kwarrtz$render$Graphics_Render$position = F2(
+	function (_p1, form) {
+		var _p2 = _p1;
+		return _elm_lang$core$Native_Utils.update(
+			form,
+			{x: _p2._0, y: _p2._1});
+	});
+var _Kwarrtz$render$Graphics_Render$fontFamily = F2(
+	function (f, _p3) {
+		var _p4 = _p3;
+		return A2(
+			_Kwarrtz$render$Graphics_Render_Core$Text,
+			_p4._0,
+			_elm_lang$core$Native_Utils.update(
+				_p4._1,
+				{font: f}));
+	});
+var _Kwarrtz$render$Graphics_Render$fontGradient = F2(
+	function (stops, _p5) {
+		var _p6 = _p5;
+		return A2(
+			_Kwarrtz$render$Graphics_Render_Core$Text,
+			_p6._0,
+			_elm_lang$core$Native_Utils.update(
+				_p6._1,
+				{
+					stroke: _Kwarrtz$render$Graphics_Render$simpleLinearGradient(stops)
+				}));
+	});
+var _Kwarrtz$render$Graphics_Render$fontPattern = F4(
+	function (w, h, url, _p7) {
+		var _p8 = _p7;
+		return A2(
+			_Kwarrtz$render$Graphics_Render_Core$Text,
+			_p8._0,
+			_elm_lang$core$Native_Utils.update(
+				_p8._1,
+				{
+					stroke: A3(_Kwarrtz$render$Graphics_Render$pattern, w, h, url)
+				}));
+	});
+var _Kwarrtz$render$Graphics_Render$fontColor = F2(
+	function (color, _p9) {
+		var _p10 = _p9;
+		return A2(
+			_Kwarrtz$render$Graphics_Render_Core$Text,
+			_p10._0,
+			_elm_lang$core$Native_Utils.update(
+				_p10._1,
+				{
+					stroke: _Kwarrtz$render$Graphics_Render$solid(color)
+				}));
+	});
+var _Kwarrtz$render$Graphics_Render$underlined = function (_p11) {
+	var _p12 = _p11;
+	return A2(
+		_Kwarrtz$render$Graphics_Render_Core$Text,
+		_p12._0,
+		_elm_lang$core$Native_Utils.update(
+			_p12._1,
+			{underlined: true}));
+};
+var _Kwarrtz$render$Graphics_Render$italic = function (_p13) {
+	var _p14 = _p13;
+	return A2(
+		_Kwarrtz$render$Graphics_Render_Core$Text,
+		_p14._0,
+		_elm_lang$core$Native_Utils.update(
+			_p14._1,
+			{italic: true}));
+};
+var _Kwarrtz$render$Graphics_Render$bold = function (_p15) {
+	var _p16 = _p15;
+	return A2(
+		_Kwarrtz$render$Graphics_Render_Core$Text,
+		_p16._0,
+		_elm_lang$core$Native_Utils.update(
+			_p16._1,
+			{bold: true}));
+};
+var _Kwarrtz$render$Graphics_Render$text = F2(
+	function (size, t) {
+		return A2(
+			_Kwarrtz$render$Graphics_Render_Core$Text,
+			t,
+			A6(
+				_Kwarrtz$render$Graphics_Render_Core$TextStyle_,
+				_Kwarrtz$render$Graphics_Render$solid(_elm_lang$core$Color$black),
+				size,
+				'sans-serif',
+				false,
+				false,
+				false));
+	});
+var _Kwarrtz$render$Graphics_Render$lineStyle = F2(
+	function (stroke, width) {
+		return A6(
+			_Kwarrtz$render$Graphics_Render_Core$LineStyle,
+			stroke,
+			width,
+			_Kwarrtz$render$Graphics_Render$flat,
+			_Kwarrtz$render$Graphics_Render$sharp,
+			{ctor: '[]'},
+			0);
+	});
+var _Kwarrtz$render$Graphics_Render$segments = _Kwarrtz$render$Graphics_Render_Core$Polyline;
+var _Kwarrtz$render$Graphics_Render$segment = F2(
+	function (a, b) {
+		return _Kwarrtz$render$Graphics_Render$segments(
+			{
+				ctor: '::',
+				_0: a,
+				_1: {
+					ctor: '::',
+					_0: b,
+					_1: {ctor: '[]'}
+				}
+			});
+	});
+var _Kwarrtz$render$Graphics_Render$ellipse = _Kwarrtz$render$Graphics_Render_Core$Ellipse;
+var _Kwarrtz$render$Graphics_Render$circle = function (r) {
+	return A2(_Kwarrtz$render$Graphics_Render$ellipse, r, r);
+};
+var _Kwarrtz$render$Graphics_Render$polygon = _Kwarrtz$render$Graphics_Render_Core$Polygon;
+var _Kwarrtz$render$Graphics_Render$rectangle = F2(
+	function (w, h) {
+		return _Kwarrtz$render$Graphics_Render$polygon(
+			{
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 0 - (w / 2), _1: h / 2},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: w / 2, _1: h / 2},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: w / 2, _1: 0 - (h / 2)},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 0 - (w / 2), _1: 0 - (h / 2)},
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			});
+	});
+var _Kwarrtz$render$Graphics_Render$form = function (bForm) {
+	return A7(
+		_Kwarrtz$render$Graphics_Render_Core$Form,
+		0,
+		0,
+		0,
+		1,
+		1,
+		bForm,
+		{ctor: '[]'});
+};
+var _Kwarrtz$render$Graphics_Render$html = function (elem) {
+	return _Kwarrtz$render$Graphics_Render$form(
+		_Kwarrtz$render$Graphics_Render_Core$FElem(elem));
+};
+var _Kwarrtz$render$Graphics_Render$group = function (forms) {
+	return _Kwarrtz$render$Graphics_Render$form(
+		_Kwarrtz$render$Graphics_Render_Core$FGroup(forms));
+};
+var _Kwarrtz$render$Graphics_Render$styledShape = function (shape) {
+	return function (_p17) {
+		return _Kwarrtz$render$Graphics_Render$form(
+			A2(_Kwarrtz$render$Graphics_Render_Core$FShape, shape, _p17));
+	};
+};
+var _Kwarrtz$render$Graphics_Render$filledAndBordered = F4(
+	function (fill, width, border, shape) {
+		return _Kwarrtz$render$Graphics_Render$form(
+			A2(
+				_Kwarrtz$render$Graphics_Render_Core$FShape,
+				shape,
+				{
+					fill: fill,
+					border: A2(_Kwarrtz$render$Graphics_Render$lineStyle, border, width)
+				}));
+	});
+var _Kwarrtz$render$Graphics_Render$filled = F2(
+	function (texture, shape) {
+		return A4(_Kwarrtz$render$Graphics_Render$filledAndBordered, texture, 0, _Kwarrtz$render$Graphics_Render$transparent, shape);
+	});
+var _Kwarrtz$render$Graphics_Render$bordered = F3(
+	function (width, texture, shape) {
+		return A4(_Kwarrtz$render$Graphics_Render$filledAndBordered, _Kwarrtz$render$Graphics_Render$transparent, width, texture, shape);
+	});
+var _Kwarrtz$render$Graphics_Render$styledLine = F2(
+	function (line, style) {
+		return _Kwarrtz$render$Graphics_Render$form(
+			A2(_Kwarrtz$render$Graphics_Render_Core$FLine, line, style));
+	});
+var _Kwarrtz$render$Graphics_Render$solidLine = F3(
+	function (width, stroke, line) {
+		return A2(
+			_Kwarrtz$render$Graphics_Render$styledLine,
+			line,
+			A2(_Kwarrtz$render$Graphics_Render$lineStyle, stroke, width));
+	});
+var _Kwarrtz$render$Graphics_Render$dashedLine = F3(
+	function (width, stroke, line) {
+		var ls = A2(_Kwarrtz$render$Graphics_Render$lineStyle, stroke, width);
+		return A2(
+			_Kwarrtz$render$Graphics_Render$styledLine,
+			line,
+			_elm_lang$core$Native_Utils.update(
+				ls,
+				{
+					dashing: {
+						ctor: '::',
+						_0: 8,
+						_1: {
+							ctor: '::',
+							_0: 4,
+							_1: {ctor: '[]'}
+						}
+					}
+				}));
+	});
+var _Kwarrtz$render$Graphics_Render$dottedLine = F3(
+	function (width, stroke, line) {
+		var ls = A2(_Kwarrtz$render$Graphics_Render$lineStyle, stroke, width);
+		return A2(
+			_Kwarrtz$render$Graphics_Render$styledLine,
+			line,
+			_elm_lang$core$Native_Utils.update(
+				ls,
+				{
+					dashing: {
+						ctor: '::',
+						_0: 2,
+						_1: {
+							ctor: '::',
+							_0: 2,
+							_1: {ctor: '[]'}
+						}
+					}
+				}));
+	});
+var _Kwarrtz$render$Graphics_Render$styledText = F2(
+	function (text, style) {
+		var style_ = A6(_Kwarrtz$render$Graphics_Render_Core$TextStyle_, style.stroke, style.size, style.font, style.bold, style.italic, style.underlined);
+		return _Kwarrtz$render$Graphics_Render$form(
+			A2(
+				_Kwarrtz$render$Graphics_Render_Core$FText,
+				A2(_Kwarrtz$render$Graphics_Render_Core$Text, text, style_),
+				style.align));
+	});
+var _Kwarrtz$render$Graphics_Render$leftJustified = function (t) {
+	return _Kwarrtz$render$Graphics_Render$form(
+		A2(_Kwarrtz$render$Graphics_Render_Core$FText, t, _Kwarrtz$render$Graphics_Render$left));
+};
+var _Kwarrtz$render$Graphics_Render$centered = function (t) {
+	return _Kwarrtz$render$Graphics_Render$form(
+		A2(_Kwarrtz$render$Graphics_Render_Core$FText, t, _Kwarrtz$render$Graphics_Render$center));
+};
+var _Kwarrtz$render$Graphics_Render$rightJustified = function (t) {
+	return _Kwarrtz$render$Graphics_Render$form(
+		A2(_Kwarrtz$render$Graphics_Render_Core$FText, t, _Kwarrtz$render$Graphics_Render$right));
+};
+var _Kwarrtz$render$Graphics_Render$image = F3(
+	function (w, h, url) {
+		return _Kwarrtz$render$Graphics_Render$form(
+			A3(_Kwarrtz$render$Graphics_Render_Core$FImage, url, w, h));
+	});
